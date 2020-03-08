@@ -1,12 +1,10 @@
 # Pysinsy
 
+[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE.md)
+
 A python wrapper for https://github.com/r9y9/sinsy.
 
-Please notice that the package is not ready to use and APIs will subject to change.
-
-I will tag a release once I finish the initial design.
-
-I'm focusing on porting the frontend functionality (i.e., extracting full context labels from a musicxml file), but feel free to ask me if you have any request.
+Please notice that the package is not ready to use and APIs will subject to change. I will tag a release once I finish the initial design. I'm focusing on porting the frontend functionality (i.e., extracting full context labels from a musicxml file), but feel free to ask me if you have any request.
 
 ## Quick demo
 
