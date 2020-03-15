@@ -18,7 +18,7 @@ cdef extern from "sinsy/sinsy.h" namespace "sinsy":
       bool setAlpha(double alpha)
       bool setVolume(double volume)
 
-      LabelStrings* createLabelData()
+      LabelStrings* createLabelData(bool monophoneFlag, int overwriteEnableFlag, int timeFlag)
 
       bool synthesize(SynthCondition& condition)
       bool stop()

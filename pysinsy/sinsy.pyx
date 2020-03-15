@@ -47,9 +47,9 @@ cdef class Sinsy(object):
     def setVolume(self, alpha):
         return self.ptr.setVolume(alpha)
 
-    def createLabelData(self):
+    def createLabelData(self, monophoneFlag=False, overwriteEnableFlag=1, timeFlag=1):
         cdef label_strings.LabelStrings* p 
-        p = self.ptr.createLabelData()
+        p = self.ptr.createLabelData(monophoneFlag, overwriteEnableFlag, timeFlag)
         cdef LabelStrings label = LabelStrings()
         label.ptr = p
         return label
