@@ -6,6 +6,7 @@ import pysinsy
 
 DATA_DIR = dirname(__file__)
 
+
 def test_pysinsy():
     # http://sinsy.sp.nitech.ac.jp/sample/song070_f00001_063.xml
 
@@ -22,4 +23,3 @@ def test_pysinsy():
             print(l)
 
     sinsy.clearScore()
-

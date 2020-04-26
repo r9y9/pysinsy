@@ -9,7 +9,6 @@ from distutils.version import LooseVersion
 import subprocess
 import numpy as np
 import os
-from glob import glob
 from os.path import join
 
 version = '0.0.1'
