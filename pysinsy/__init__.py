@@ -1,7 +1,5 @@
 # coding: utf-8
 
-from __future__ import division, print_function, absolute_import
-
 from .version import __version__
 
 from .sinsy import Sinsy
