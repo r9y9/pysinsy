@@ -1,5 +1,6 @@
 # Pysinsy
 
+![Python package](https://github.com/r9y9/pysinsy/workflows/Python%20package/badge.svg)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE.md)
 
 A python wrapper for https://github.com/r9y9/sinsy.
