@@ -26,7 +26,8 @@ jobs:
     - name: install sinsy
       run: |
         git clone https://github.com/r9y9/sinsy
-        cd sinsy/src/ && mkdir -p build && cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON  .. && make -j && sudo make install
+        cd sinsy/src/ && mkdir -p build && cd build
+        cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON  .. && make -j && sudo make install
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
