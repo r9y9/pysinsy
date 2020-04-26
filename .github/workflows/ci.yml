@@ -46,5 +46,6 @@ jobs:
         flake8
     - name: Test with pytest
       run: |
+        export LD_LIBRARY_PATH=/usr/local/lib
         pip install pytest
         pytest
