@@ -166,17 +166,8 @@ ext_modules = [
         include_dirs=[np.get_include()] + include_dirs,
         extra_compile_args=[],
         extra_link_args=[],
+        libraries=["winmm"] if platform_is_windows else [],
         language="c++",
-        define_macros=custom_define_macros(
-            [
-                ("HAVE_CONFIG_H", None),
-                ("DIC_VERSION", 102),
-                ("MECAB_DEFAULT_RC", '"dummy"'),
-                ("PACKAGE", '"open_jtalk"'),
-                ("VERSION", '"1.10"'),
-                ("CHARSET_UTF_8", None),
-            ]
-        ),
     )
 ]
 
