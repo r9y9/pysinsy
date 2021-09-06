@@ -16,10 +16,9 @@ def test_pysinsy():
     assert sinsy.setLanguages("j", pysinsy.get_default_dic_dir())
     assert sinsy.loadScoreFromMusicXML(xml_path)
 
-    is_mono = True
     for is_mono in [True, False]:
         label = sinsy.createLabelData(is_mono, 1, 1)
-        for l in label.getData():
-            print(l)
+        for line in label.getData():
+            print(line)
 
     sinsy.clearScore()
