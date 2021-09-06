@@ -1,9 +1,7 @@
-# coding: utf-8
 # cython: boundscheck=True, wraparound=True
 # cython: c_string_type=unicode, c_string_encoding=ascii
 
 import numpy as np
-import pkg_resources
 
 cimport numpy as np
 np.import_array()
@@ -13,8 +11,6 @@ from libcpp.string cimport string
 from libcpp.vector cimport vector
 
 from sinsy cimport sinsy, label_strings
-
-DEFAULT_DIC_DIR = pkg_resources.resource_filename(__name__, "_dic")
 
 
 cdef class LabelStrings(object):
@@ -73,16 +69,29 @@ cdef class SynthCondition(object):
 
 cdef class Sinsy(object):
     """Sinsy
+
+    The core Sinsy class
     """
     cdef sinsy.Sinsy* ptr
 
     def __cinit__(self):
         self.ptr = new sinsy.Sinsy()
 
-    def setLanguages(self, lang="j", config=DEFAULT_DIC_DIR):
+    def setLanguages(self, lang, config):
+        """Set language
+
+        Args:
+            lang (str): language code.
+            config (str): Path to dictionary.
+        """
         return self.ptr.setLanguages(lang, config)
 
     def loadVoices(self, voice):
+        """Load hts voice
+
+        Args:
+            voice (str): Path to hts voice.
+        """
         cdef vector[string] voices
         voices.push_back(voice)
         cdef char ret
@@ -103,6 +112,15 @@ cdef class Sinsy(object):
         return label
 
     def synthesize(self):
+        """Synthesize waveform
+
+        Returns:
+            wav (ndarray): numpy array of type float64.
+            sr (int): sampling frequency.
+
+        Raises:
+            RuntimeError: if fail to synthesize
+        """
         cond = SynthCondition()
         cond.setPlayFlag()
         ret = self.ptr.synthesize(cond.ptr)
@@ -113,13 +131,22 @@ cdef class Sinsy(object):
         return wav, sr
 
     def clearScore(self):
+        """Clear loaded score"""
         self.ptr.clearScore()
 
     def loadScoreFromMusicXML(self, xml):
+        """Load score from music xml
+
+        Args:
+            xml (str): Path to music xml.
+        """
         return self.ptr.loadScoreFromMusicXML(xml)
 
     def get_sampling_frequency(self):
         """Get sampling frequency
+
+        Returns:
+            int: sampling rate.
         """
         return self.ptr.get_sampling_frequency()
 
