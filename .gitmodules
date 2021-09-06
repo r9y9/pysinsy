@@ -1,0 +1,3 @@
+[submodule "lib/sinsy"]
+	path = lib/sinsy
+	url = https://github.com/r9y9/sinsy.git
