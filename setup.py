@@ -1,11 +1,8 @@
 import os
 import subprocess
 import sys
-from distutils.errors import DistutilsExecError
-from distutils.spawn import spawn
 from distutils.version import LooseVersion
 from glob import glob
-from itertools import chain
 from os.path import join
 
 import numpy as np
@@ -27,11 +24,6 @@ except ImportError:
     _CYTHON_INSTALLED = False
 
 
-msvc_extra_compile_args_config = [
-    "/source-charset:utf-8",
-    "/execution-charset:utf-8",
-]
-
 try:
     if not _CYTHON_INSTALLED:
         raise ImportError("No supported version of Cython installed.")
@@ -43,95 +35,12 @@ except ImportError:
 
 if cython:
     ext = ".pyx"
-
-    def msvc_extra_compile_args(compile_args):
-        cas = set(compile_args)
-        xs = filter(lambda x: x not in cas, msvc_extra_compile_args_config)
-        return list(chain(compile_args, xs))
-
-    class custom_build_ext(build_ext):
-        def build_extensions(self):
-            compiler_type_is_msvc = self.compiler.compiler_type == "msvc"
-            for entry in self.extensions:
-                if compiler_type_is_msvc:
-                    entry.extra_compile_args = msvc_extra_compile_args(
-                        entry.extra_compile_args
-                        if hasattr(entry, "extra_compile_args")
-                        else []
-                    )
-
-            build_ext.build_extensions(self)
-
-    cmdclass = {"build_ext": custom_build_ext}
+    cmdclass = {"build_ext": build_ext}
 else:
     ext = ".cpp"
     cmdclass = {}
-    if not os.path.exists(join("pyopenjtalk", "openjtalk" + ext)):
+    if not os.path.exists(join("pysinsy", "sinsy" + ext)):
         raise RuntimeError("Cython is required to generate C++ code")
-
-
-# Workaround for `distutils.spawn` problem on Windows python < 3.9
-# See details: [bpo-39763: distutils.spawn now uses subprocess (GH-18743)]
-# (https://github.com/python/cpython/commit/1ec63b62035e73111e204a0e03b83503e1c58f2e)
-def test_quoted_arg_change():
-    child_script = """
-import os
-import sys
-if len(sys.argv) > 5:
-    try:
-        os.makedirs(sys.argv[1], exist_ok=True)
-        with open(sys.argv[2], mode=sys.argv[3], encoding=sys.argv[4]) as fd:
-            fd.write(sys.argv[5])
-    except OSError:
-        pass
-"""
-
-    try:
-        # write
-        package_build_dir = "build"
-        file_name = join(package_build_dir, "quoted_arg_output")
-        output_mode = "w"
-        file_encoding = "utf8"
-        arg_value = '"ARG"'
-
-        spawn(
-            [
-                sys.executable,
-                "-c",
-                child_script,
-                package_build_dir,
-                file_name,
-                output_mode,
-                file_encoding,
-                arg_value,
-            ]
-        )
-
-        # read
-        with open(file_name, mode="r", encoding=file_encoding) as fd:
-            return fd.readline() != arg_value
-    except (DistutilsExecError, TypeError):
-        return False
-
-
-def escape_string_macro_arg(s):
-    return s.replace("\\", "\\\\").replace('"', '\\"')
-
-
-def escape_macro_element(x):
-    (k, arg) = x
-    return (k, escape_string_macro_arg(arg)) if type(arg) == str else x
-
-
-def escape_macros(macros):
-    return list(map(escape_macro_element, macros))
-
-
-custom_define_macros = (
-    escape_macros
-    if platform_is_windows and test_quoted_arg_change()
-    else (lambda macros: macros)
-)
 
 
 # sinsy sources
