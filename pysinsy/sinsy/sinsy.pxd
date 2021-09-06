@@ -6,7 +6,7 @@ from libcpp.vector cimport vector
 
 from .label_strings cimport LabelStrings
 
-cdef extern from "sinsy/sinsy.h" namespace "sinsy":
+cdef extern from "sinsy.h" namespace "sinsy":
    cdef cppclass SynthCondition:
       SynthCondition()
 
