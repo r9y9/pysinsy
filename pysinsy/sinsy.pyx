@@ -3,14 +3,19 @@
 # cython: c_string_type=unicode, c_string_encoding=ascii
 
 import numpy as np
+import pkg_resources
 
 cimport numpy as np
 np.import_array()
 
 cimport cython
-
+from libcpp.string cimport string
+from libcpp.vector cimport vector
 
 from sinsy cimport sinsy, label_strings
+
+DEFAULT_DIC_DIR = pkg_resources.resource_filename(__name__, "_dic")
+
 
 cdef class LabelStrings(object):
     cdef label_strings.LabelStrings* ptr
@@ -29,6 +34,42 @@ cdef class LabelStrings(object):
         if self.ptr is not NULL:
             del self.ptr
 
+cdef class SynthCondition(object):
+    """Sinsy
+    """
+    cdef sinsy.SynthCondition* ptr
+    cdef vector[double] buffer
+
+    def __cinit__(self):
+        self.ptr = new sinsy.SynthCondition()
+        self.buffer = vector[double]()
+        self._setWaveformBuffer(self.buffer)
+
+    def setPlayFlag(self):
+        self.ptr.setPlayFlag()
+
+    def unsetPlayFlag(self):
+        self.ptr.unsetPlayFlag()
+
+    def setSaveFilePath(self, s):
+        cdef string ss = s
+        self.ptr.setSaveFilePath(ss)
+
+    def unsetSaveFilePath(self):
+        self.ptr.unsetSaveFilePath()
+
+    cdef _setWaveformBuffer(self, vector[double]& x):
+        self.ptr.setWaveformBuffer(x)
+
+    def getWaveformBuffer(self):
+        cdef np.ndarray waveform = np.zeros([self.buffer.size()], dtype=np.float64)
+        waveform[:] = self.buffer[:]
+        self.buffer.clear()
+        return waveform
+
+    def __dealloc__(self):
+        del self.ptr
+
 
 cdef class Sinsy(object):
     """Sinsy
@@ -38,8 +79,15 @@ cdef class Sinsy(object):
     def __cinit__(self):
         self.ptr = new sinsy.Sinsy()
 
-    def setLanguages(self, lang="j", config="/usr/local/lib/sinsy/dic"):
+    def setLanguages(self, lang="j", config=DEFAULT_DIC_DIR):
         return self.ptr.setLanguages(lang, config)
+
+    def loadVoices(self, voice):
+        cdef vector[string] voices
+        voices.push_back(voice)
+        cdef char ret
+        ret = self.ptr.loadVoices(voices)
+        return ret
 
     def setAlpha(self, alpha):
         return self.ptr.setAlpha(alpha)
@@ -48,17 +96,32 @@ cdef class Sinsy(object):
         return self.ptr.setVolume(alpha)
 
     def createLabelData(self, monophoneFlag=False, overwriteEnableFlag=1, timeFlag=1):
-        cdef label_strings.LabelStrings* p 
+        cdef label_strings.LabelStrings* p
         p = self.ptr.createLabelData(monophoneFlag, overwriteEnableFlag, timeFlag)
         cdef LabelStrings label = LabelStrings()
         label.ptr = p
         return label
-    
+
+    def synthesize(self):
+        cond = SynthCondition()
+        cond.setPlayFlag()
+        ret = self.ptr.synthesize(cond.ptr)
+        if ret == False:
+            raise RuntimeError("Failed to synthesize")
+        wav = cond.getWaveformBuffer()
+        sr = self.get_sampling_frequency()
+        return wav, sr
+
     def clearScore(self):
         self.ptr.clearScore()
-    
+
     def loadScoreFromMusicXML(self, xml):
         return self.ptr.loadScoreFromMusicXML(xml)
-        
+
+    def get_sampling_frequency(self):
+        """Get sampling frequency
+        """
+        return self.ptr.get_sampling_frequency()
+
     def __dealloc__(self):
         del self.ptr
