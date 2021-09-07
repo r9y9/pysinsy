@@ -2,6 +2,12 @@
 
 ![Python package](https://github.com/r9y9/pysinsy/workflows/Python%20package/badge.svg)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE.md)
+[![][docs-latest-img]][docs-latest-url]
+
+
+[docs-latest-img]: https://img.shields.io/badge/docs-latest-blue.svg
+[docs-latest-url]: https://r9y9.github.io/pysinsy/
+
 
 A python wrapper for https://github.com/r9y9/sinsy.
 
@@ -10,7 +16,6 @@ Please notice that the package is in an alpha state. APIs will subject to change
 ## Notice
 
 The package is built with the [modified version of sinsy](https://github.com/r9y9/sinsy). The modified version provides the same functionality with some improvements (e.g., cmake support) but is technically different from the one from HTS working group.
-Before using the pysinsy package, please have a look at the LICENSE for the two software.
 
 ## Build requirements
 
@@ -18,7 +23,7 @@ The python package relies on cython to make python bindings for sinsy. You must 
 
 - C/C++ compilers (to build C/C++ extentions)
 - cython
--
+
 ## Supported platforms
 
 - Linux
@@ -50,11 +55,10 @@ pip install -e .
 ```py
 import pysinsy
 
-sinsy = pysinsy.sinsy.Sinsy()
+sinsy = pysinsy.Sinsy()
 
 # Set language to Japanese
 assert sinsy.setLanguages("j", pysinsy.get_default_dic_dir())
-
 assert sinsy.loadScoreFromMusicXML("./tests/song070_f00001_063.xml")
 
 print("Mono labels:")
