@@ -99,12 +99,32 @@ cdef class Sinsy(object):
         return ret
 
     def setAlpha(self, alpha):
+        """Set alpha
+
+        Args:
+            alpha (float): Alpha
+        """
         return self.ptr.setAlpha(alpha)
 
-    def setVolume(self, alpha):
-        return self.ptr.setVolume(alpha)
+    def setVolume(self, volume):
+        """Set volume
+
+        Args:
+            volume (float): volume
+        """
+        return self.ptr.setVolume(volume)
 
     def createLabelData(self, monophoneFlag=False, overwriteEnableFlag=1, timeFlag=1):
+        """Create labels
+
+        Args:
+            monophoneFlag (bool): Monophone or full-context
+            overwriteEnableFlag (int): Overrite or not
+            timeFlag (int): with time or not.
+
+        Returns:
+            LabelStrings: labels
+        """
         cdef label_strings.LabelStrings* p
         p = self.ptr.createLabelData(monophoneFlag, overwriteEnableFlag, timeFlag)
         cdef LabelStrings label = LabelStrings()
