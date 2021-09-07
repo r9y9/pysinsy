@@ -1,2 +1,2 @@
-include README.md LICENSE.md
-recursive-include pysinsy *.cpp *.pxd *.md *.pyx
+include README.md LICENSE COPYING
+recursive-include pysinsy *.cpp *.pxd *.md *.pyx COPYING LICENSE README.md

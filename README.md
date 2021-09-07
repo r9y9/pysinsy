@@ -7,17 +7,42 @@ A python wrapper for https://github.com/r9y9/sinsy.
 
 Please notice that the package is in an alpha state. APIs will subject to change.
 
-## Installation
+## Notice
 
+The package is built with the [modified version of sinsy](https://github.com/r9y9/sinsy). The modified version provides the same functionality with some improvements (e.g., cmake support) but is technically different from the one from HTS working group.
+Before using the pysinsy package, please have a look at the LICENSE for the two software.
+
+## Build requirements
+
+The python package relies on cython to make python bindings for sinsy. You must need the following tools to build and install pysinsy:
+
+- C/C++ compilers (to build C/C++ extentions)
+- cython
+-
+## Supported platforms
+
+- Linux
+- Mac OSX
+- Windows (MSVC)
+
+## Installation
 
 ```
 pip install pysinsy
 ```
 
-or
+## Development
+
+To build the package locally, you will need to make sure to clone open_jtalk and hts_engine_API.
 
 ```
-python setup.py develop
+git submodule update --recursive --init
+```
+
+and then run
+
+```
+pip install -e .
 ```
 
 ## Quick demo
