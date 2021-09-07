@@ -135,7 +135,7 @@ setup(
     author_email="zryuichi@gmail.com",
     url="https://github.com/r9y9/pysinsy",
     license="MIT",
-    packages=find_packages(),
+    packages=find_packages(include=["pysinsy*"]),
     package_data={"": ["htsvoice/*"]},
     ext_modules=ext_modules,
     cmdclass=cmdclass,
