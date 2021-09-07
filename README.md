@@ -5,18 +5,20 @@
 
 A python wrapper for https://github.com/r9y9/sinsy.
 
-Please notice that the package is in an alpha state. APIs will subject to change. I will tag a release once I finish the initial design.
+Please notice that the package is in an alpha state. APIs will subject to change.
 
 ## Installation
 
-This package is built on the sinsy's shared library. You must need to compile sinsy from source and install it on your system. Please see https://github.com/r9y9/sinsy and install it first.
 
-After installing sinsy, you can install pysinsy by:
+```
+pip install pysinsy
+```
+
+or
 
 ```
 python setup.py develop
 ```
-
 
 ## Quick demo
 
@@ -26,7 +28,7 @@ import pysinsy
 sinsy = pysinsy.sinsy.Sinsy()
 
 # Set language to Japanese
-assert sinsy.setLanguages("j", "/usr/local/lib/sinsy/dic")
+assert sinsy.setLanguages("j", pysinsy.get_default_dic_dir())
 
 assert sinsy.loadScoreFromMusicXML("./tests/song070_f00001_063.xml")
 
