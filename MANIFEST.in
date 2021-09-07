@@ -1,2 +1,4 @@
 include README.md LICENSE COPYING
-recursive-include pysinsy *.cpp *.pxd *.md *.pyx COPYING LICENSE README.md
+include pysinsy/_dic/*.conf pysinsy/_dic/*.table pysinsy/_dic/*.macron
+recursive-include pysinsy *.cpp *.pxd *.md *.pyx *.xml COPYING LICENSE README.md
+recursive-include lib *.cpp *.c *.h README LICENSE COPYING
