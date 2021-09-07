@@ -38,7 +38,7 @@ pip install pysinsy
 
 ## Development
 
-To build the package locally, you will need to make sure to clone open_jtalk and hts_engine_API.
+To build the package locally, you will need to make sure to clone sinsy.
 
 ```
 git submodule update --recursive --init
