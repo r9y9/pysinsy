@@ -1,5 +1,6 @@
 # Pysinsy
 
+[![PyPI](https://img.shields.io/pypi/v/pysinsy.svg)](https://pypi.python.org/pypi/pysinsy)
 ![Python package](https://github.com/r9y9/pysinsy/workflows/Python%20package/badge.svg)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE.md)
 [![][docs-latest-img]][docs-latest-url]
