@@ -1,8 +1,11 @@
 Change log
 ==========
 
-v0.0.3 <2022-xx-xx>
+v0.0.3 <2022-03-12>
 -------------------
+
+Fixed a bug that dictionary files are not installed property
+
 
 v0.0.2 <2022-02-06>
 -------------------

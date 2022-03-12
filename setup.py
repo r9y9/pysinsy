@@ -136,7 +136,7 @@ setup(
     url="https://github.com/r9y9/pysinsy",
     license="MIT",
     packages=find_packages(include=["pysinsy*"]),
-    package_data={"": ["htsvoice/*"]},
+    package_data={"": ["htsvoice/*", "_dic/*"]},
     ext_modules=ext_modules,
     cmdclass=cmdclass,
     install_requires=[
