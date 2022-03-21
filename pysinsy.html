@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pysinsy &mdash; pysinsy 0.0.5+f977993 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pysinsy.sinsy" href="sinsy.html" />
+    <link rel="prev" title="Quick demo" href="notebooks/Demo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pysinsy
+          </a>
+              <div class="version">
+                0.0.5+f977993
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Demo.html">Quick demo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Demo.html#Synthesize-audio">Synthesize audio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/Demo.html#High-level-API">High-level API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/Demo.html#Using-Sinsy-API">Using Sinsy API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Demo.html#Run-frontend-processing-frontend-only">Run frontend processing frontend only</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/Demo.html#Mono-phone-label">Mono-phone label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/Demo.html#Full-context-label">Full-context label</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pysinsy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#high-level-api">High-level API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utils">Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sinsy.html">pysinsy.sinsy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sinsy.html#sinsy">Sinsy</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Meta information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v0-0-5-2022-xx-xx">v0.0.5 &lt;2022-xx-xx&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v0-0-4-2022-03-21">v0.0.4 &lt;2022-03-21&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v0-0-3-2022-03-12">v0.0.3 &lt;2022-03-12&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v0-0-2-2022-02-06">v0.0.2 &lt;2022-02-06&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v0-0-1-2021-09-07">v0.0.1 &lt;2021-09-07&gt;</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pysinsy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>pysinsy</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pysinsy.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="module-pysinsy">
+<span id="pysinsy"></span><h1>pysinsy<a class="headerlink" href="#module-pysinsy" title="Permalink to this headline"></a></h1>
+<p>The pysinsy module.</p>
+<section id="high-level-api">
+<h2>High-level API<a class="headerlink" href="#high-level-api" title="Permalink to this headline"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The use of high-level APIs is not encouraged if you want to get a full control (e.g., using an external dictionary or htsvoice). Please manually instanciate the Sinsy class and use it with your own options.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="pysinsy.synthesize">
+<span class="sig-prename descclassname"><span class="pre">pysinsy.</span></span><span class="sig-name descname"><span class="pre">synthesize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">musicxml_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pysinsy.html#synthesize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pysinsy.synthesize" title="Permalink to this definition"></a></dt>
+<dd><p>Synthesize waveform given muxic XML file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>str</strong> – music XML path</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>tuple of wav array of type float64 and sampling frequency</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><strong>RuntimeError</strong></a> – if fail to synthesize</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysinsy.extract_fullcontext">
+<span class="sig-prename descclassname"><span class="pre">pysinsy.</span></span><span class="sig-name descname"><span class="pre">extract_fullcontext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a></span></span><a class="reference internal" href="_modules/pysinsy.html#extract_fullcontext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pysinsy.extract_fullcontext" title="Permalink to this definition"></a></dt>
+<dd><p>Extract full-context labels from music XML file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xml</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Path to musicxml file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of full contexts</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="utils">
+<h2>Utils<a class="headerlink" href="#utils" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pysinsy.get_default_dic_dir">
+<span class="sig-prename descclassname"><span class="pre">pysinsy.</span></span><span class="sig-name descname"><span class="pre">get_default_dic_dir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pysinsy.html#get_default_dic_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pysinsy.get_default_dic_dir" title="Permalink to this definition"></a></dt>
+<dd><p>Returns default dictionary directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dictionary path</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysinsy.get_default_htsvoice">
+<span class="sig-prename descclassname"><span class="pre">pysinsy.</span></span><span class="sig-name descname"><span class="pre">get_default_htsvoice</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pysinsy.html#get_default_htsvoice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pysinsy.get_default_htsvoice" title="Permalink to this definition"></a></dt>
+<dd><p>Returns default hts voice</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>hts voice path</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="notebooks/Demo.html" class="btn btn-neutral float-left" title="Quick demo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sinsy.html" class="btn btn-neutral float-right" title="pysinsy.sinsy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Ryuichi Yamamoto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
