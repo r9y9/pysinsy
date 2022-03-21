@@ -12,7 +12,7 @@ from setuptools import Extension, find_packages, setup
 
 platform_is_windows = sys.platform == "win32"
 
-version = "0.0.4"
+version = "0.0.5"
 
 min_cython_ver = "0.21.0"
 try:
