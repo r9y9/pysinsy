@@ -59,3 +59,22 @@ def synthesize(musicxml_path: str):
     _global_sinsy.clearScore()
 
     return wav, sr
+
+
+def extract_fullcontext(xml: str) -> list:
+    """Extract full-context labels from music XML file
+
+    Args:
+        xml (str): Path to musicxml file.
+
+    Returns:
+        list: list of full contexts
+    """
+    global _global_sinsy
+    if _global_sinsy is None:
+        _lazy_init()
+
+    _global_sinsy.loadScoreFromMusicXML(xml)
+    labels = _global_sinsy.createLabelData(False, 1, 1).getData()
+    _global_sinsy.clearScore()
+    return labels
