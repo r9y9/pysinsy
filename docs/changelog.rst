@@ -1,7 +1,7 @@
 Change log
 ==========
 
-v0.0.4 <2022-xx-xx>
+v0.0.4 <2022-03-21>
 -------------------
 
 * `#12`_: Add extract_fullcontext in analogy to pyopenjtalk's one
