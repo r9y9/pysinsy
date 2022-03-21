@@ -46,3 +46,13 @@ def test_pysinsy_highlevel():
         wav, sr = pysinsy.synthesize(xml_path)
         assert len(wav) > 0 and wav.max() > 0
         assert sr == 48000
+
+
+def test_extract_fullcontext():
+    xml_path = join(DATA_DIR, "song070_f00001_063.xml")
+
+    labels = pysinsy.extract_fullcontext(xml_path)
+    assert isinstance(labels, list)
+    assert len(labels) > 0
+    for i in range(5):
+        print(labels[i])
