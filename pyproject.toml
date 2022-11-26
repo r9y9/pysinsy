@@ -1,13 +1,13 @@
 [build-system]
 requires = [
     "wheel",
-    "setuptools<v60.0",
-    "cython>=0.21.0",
-    "numpy<v1.20.0",
+    "setuptools",
+    "cython>=0.28.0",
+    "numpy>=v1.20.0",
 ]
 
 [tool.pysen]
-version = "0.9"
+version = "0.10.2"
 
 [tool.pysen.lint]
 enable_black = true
