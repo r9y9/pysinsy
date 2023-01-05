@@ -73,7 +73,7 @@ ext_modules = [
         name="pysinsy.sinsy",
         sources=[join("pysinsy", "sinsy" + ext)] + all_src,
         include_dirs=[np.get_include()] + include_dirs,
-        extra_compile_args=[],
+        extra_compile_args=[] if platform_is_windows else ["--std=c++11"],
         extra_link_args=[],
         libraries=["winmm"] if platform_is_windows else [],
         language="c++",
