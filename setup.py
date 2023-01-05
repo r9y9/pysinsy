@@ -11,6 +11,7 @@ import setuptools.command.develop
 from setuptools import Extension, find_packages, setup
 
 platform_is_windows = sys.platform == "win32"
+platform_is_macos = sys.platform == "darwin"
 
 version = "0.0.5"
 
@@ -73,7 +74,7 @@ ext_modules = [
         name="pysinsy.sinsy",
         sources=[join("pysinsy", "sinsy" + ext)] + all_src,
         include_dirs=[np.get_include()] + include_dirs,
-        extra_compile_args=[] if platform_is_windows else ["--std=c++11"],
+        extra_compile_args=[] if platform_is_windows or platform_is_macos else ["--std=c++11"],
         extra_link_args=[],
         libraries=["winmm"] if platform_is_windows else [],
         language="c++",
