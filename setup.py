@@ -11,6 +11,7 @@ import setuptools.command.develop
 from setuptools import Extension, find_packages, setup
 
 platform_is_windows = sys.platform == "win32"
+platform_is_macos = sys.platform == "darwin"
 
 version = "0.0.5"
 
@@ -67,13 +68,19 @@ for s in [
 include_dirs.append(join(src_top, "include", "sinsy"))
 include_dirs.append(join(src_top, "lib/hts_engine_API/hts_engine/src/include"))
 
+# Platform-specific compile flags
+if platform_is_windows or platform_is_macos:
+    extra_compile_args = []
+else:
+    extra_compile_args = ["--std=c++11"]
+
 # Extension for sinsy
 ext_modules = [
     Extension(
         name="pysinsy.sinsy",
         sources=[join("pysinsy", "sinsy" + ext)] + all_src,
         include_dirs=[np.get_include()] + include_dirs,
-        extra_compile_args=[],
+        extra_compile_args=extra_compile_args,
         extra_link_args=[],
         libraries=["winmm"] if platform_is_windows else [],
         language="c++",
