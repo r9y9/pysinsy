@@ -13,7 +13,7 @@ from setuptools import Extension, find_packages, setup
 platform_is_windows = sys.platform == "win32"
 platform_is_macos = sys.platform == "darwin"
 
-version = "0.0.5"
+version = "0.0.6"
 
 min_cython_ver = "0.28.0"
 try:
