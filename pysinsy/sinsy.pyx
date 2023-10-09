@@ -10,7 +10,7 @@ cimport cython
 from libcpp.string cimport string
 from libcpp.vector cimport vector
 
-from sinsy cimport sinsy, label_strings
+from .sinsy cimport sinsy, label_strings
 
 
 cdef class LabelStrings(object):
